@@ -36,20 +36,19 @@
 
                     <select id="offence-categories" name="offence_category">
                       <option value="" selected>Pick an option</option>
-                      
+
                       {% for class in offences -%}
                       <optgroup label="{{class.name}}">
 
                         {% for category in class.categories -%}
-
-                          <option value="{{category.key}}" {% if category.abbreviations.length -%}data-abbreviations="{{category.abbreviations}}" {%- endif %}{% if category.other_names.length -%}data-other-names="{{category.other_names}}" {%- endif %}{% if category.key == data.offence_category %}selected="selected"{%- endif %}>{{category.name}}</option>
+                          <option value="{{category.key}}" {% if category.abbreviations.length -%}data-abbreviations="{{category.abbreviations}}" {%- endif %}{% if category.other_names.length -%}data-other-names="{{category.other_names}}" {%- endif %}{% if category.key == data.offence_category %}selected="selected"{%- endif %}>{{class.key}} - {{category.name}}</option>
 
                         {%- endfor %}
 
                       </optgroup>
                       {%- endfor %}
 
-                    </select>                    
+                    </select>
 
                   </div>
 
@@ -75,7 +74,7 @@
                     </p>
                 </div>
             </details>
-   
+
         </div>
     </div>
 
